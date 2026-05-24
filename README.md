@@ -41,7 +41,7 @@ npm run dev
 
 **Admin Login:**
 - Email: `admin@cleannest.in`
-- Password: `Admin@123`
+- Password: `admin@123`
 
 **Test User:** Register via the frontend Register tab.
 

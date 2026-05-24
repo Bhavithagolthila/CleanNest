@@ -103,7 +103,7 @@ mongoose.connect(process.env.MONGO_URI)
       await User.create({
         name: 'Admin',
         email: 'admin@cleannest.in',
-        password: 'Admin@123',  // plain text — hashed by pre('save') hook
+        password: 'admin@123',  // plain text — hashed by pre('save') hook
         role: 'admin',
       });
       console.log('✅ Admin account created → admin@cleannest.in / Admin@123');
