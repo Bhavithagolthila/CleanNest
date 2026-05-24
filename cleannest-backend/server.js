@@ -106,7 +106,7 @@ mongoose.connect(process.env.MONGO_URI)
         password: 'Admin@123',  // plain text — hashed by pre('save') hook
         role: 'admin',
       });
-      console.log('✅ Admin account created → admin@cleannest.in / Admin@123');
+      console.log('✅ Admin account created → admin@cleannest.in / admin@123');
     }
 
     // Seed default services if none exist
