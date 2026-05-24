@@ -2,6 +2,15 @@
 
 A full-stack home cleaning service booking platform built with Node.js, Express, MongoDB, and React.
 
+## 🌐 Live Demo
+
+| App | URL |
+|-----|-----|
+| 👤 User App | [clean-nest-phi.vercel.app](https://clean-nest-phi.vercel.app) |
+| 🛠️ Admin Panel | [clean-nest-a1sb.vercel.app](https://clean-nest-a1sb.vercel.app) |
+| ⚙️ Backend API | [cleannest-sfcj.onrender.com](https://cleannest-sfcj.onrender.com) — [/api/health](https://cleannest-sfcj.onrender.com/api/health) |
+
+
 ---
 
 ## 📁 Project Structure
@@ -15,7 +24,7 @@ CleanNest-portal/
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Local)
 
 ### 1. Backend
 
@@ -50,7 +59,7 @@ npm run dev
 
 | Role  | Email                  | Password   |
 |-------|------------------------|------------|
-| Admin | admin@cleannest.in     | admin123   |
+| Admin | admin@cleannest.in     | Admin@123  |
 | User  | Register via frontend  | —          |
 
 ---
@@ -71,7 +80,7 @@ npm run dev
 - Dashboard with stats (bookings, revenue, users)
 - Manage all bookings and update status
 - View users and their booking history
-- **Services Management** — Add, edit, hide/show, delete services  
+- **Services Management** — Add, edit, hide/show, delete services
   *(changes reflect instantly in the user app)*
 
 ---
@@ -103,21 +112,37 @@ Register → Login → Browse Services → Book → Pay → View in Dashboard
 
 ## 🗄️ Database
 
-| Detail            | Value                                  |
-|-------------------|----------------------------------------|
-| Database          | MongoDB (local)                        |
-| Connection String | `mongodb://localhost:27017/cleannest`  |
-| GUI Tool          | MongoDB Compass                        |
-| Collections       | `users`, `bookings`, `services`        |
+| Detail       | Value                 |
+|--------------|-----------------------|
+| Database     | MongoDB Atlas (Cloud) |
+| GUI Tool     | MongoDB Compass       |
+| Collections  | `users`, `bookings`, `services` |
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer     | Technology                  |
-|-----------|-----------------------------|
-| Backend   | Node.js, Express.js, MongoDB |
-| Frontend  | React, Vite                 |
-| Admin     | React, Vite                 |
+| Layer    | Technology                    | Hosting    |
+|----------|-------------------------------|------------|
+| Backend  | Node.js, Express.js, MongoDB  | Render     |
+| Frontend | React, Vite                   | Vercel     |
+| Admin    | React, Vite                   | Vercel     |
+| Database | MongoDB Atlas                 | GCP Mumbai |
 
 ---
+
+## 🔗 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| POST | `/api/auth/register` | Register user |
+| POST | `/api/auth/login` | Login user |
+| GET | `/api/services` | Get all services |
+| POST | `/api/bookings` | Create booking |
+| GET | `/api/bookings` | Get user bookings |
+| GET | `/api/admin/dashboard` | Admin stats |
+
+---
+
+> Built with ❤️ — CleanNest makes home cleaning simple and seamless.
