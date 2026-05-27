@@ -190,7 +190,7 @@ export default function Booking() {
     const e = {};
     if (!form.name.trim()) e.name = 'Full name is required';
     if (!form.address.trim()) e.address = 'Address is required';
-    if (!/^\d{10}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit phone number';
+    if (!/^[6-9]\d{9}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit Indian mobile number';
     if (!form.date) e.date = 'Date is required';
     else if (form.date < today) e.date = 'Date cannot be in the past';
     if (!form.time) e.time = 'Time is required';
