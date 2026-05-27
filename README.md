@@ -1,18 +1,15 @@
 # 🏠 CleanNest — Home Cleaning Service Booking Platform
-
 A full-stack home cleaning service booking web app with a user-facing frontend, an admin panel, and a REST API backend.
 
 > **Live Demo**
 > | App | URL |
 > |---|---|
 > | 🌐 Frontend (User App) | [clean-nest-nine.vercel.app](https://clean-nest-nine.vercel.app) |
-> | 🛠️ Admin Panel | [clean-nest-m1jd.vercel.app](https://clean-nest-m1jd.vercel.app) |
 > | ⚙️ Backend API | [cleannest-3wmv.onrender.com](https://cleannest-3wmv.onrender.com/api/health) |
 
 ---
 
 ## 📁 Project Structure
-
 ```
 CleanNest/
 ├── cleannest-backend/     → Node.js + Express + MongoDB REST API
@@ -50,7 +47,6 @@ CleanNest/
 ---
 
 ## 🚀 Tech Stack
-
 | Layer | Tech |
 |---|---|
 | Frontend | React 18, React Router v6, Axios, Vite |
@@ -66,12 +62,7 @@ CleanNest/
 ---
 
 ## 🔑 Default Credentials
-
-**Admin Login** (admin panel):
-```
-Email:    admin@cleannest.in
-Password: admin123
-```
+**Admin Login:** Contact owner for credentials.
 
 **Test User:** Register via the frontend → Register tab.
 
@@ -85,7 +76,7 @@ Password: admin123
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/cleannest.git
+git clone https://github.com/Bhavithagolthila/CleanNest.git
 cd cleannest
 ```
 
@@ -114,7 +105,6 @@ npm run dev            # runs on http://localhost:5174
 ---
 
 ## 📡 API Endpoints
-
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/health` | Health check |
@@ -130,12 +120,9 @@ npm run dev            # runs on http://localhost:5174
 
 ---
 
----
-
 ## 🔄 User Flow
-
 ```
-Register → Login → Browse Services → Book → Pay → View in Dashboard
+Register → Home → Browse Services → Book → Pay → View in Dashboard
 ```
 
 Admin Flow:
@@ -146,7 +133,6 @@ Admin Login → Dashboard → Manage Bookings / Users / Services
 ---
 
 ## 🌐 Deployment
-
 - **Frontend & Admin** → Deployed on [Vercel](https://vercel.com) (auto-deploy from Git)
 - **Backend** → Deployed on [Render](https://render.com) (Node.js web service)
 - **Database** → MongoDB Compass (local dev) → MongoDB Atlas (production)
