@@ -1,93 +1,134 @@
-# 🏠 CleanNest Portal
+# 🏠 CleanNest — Home Cleaning Service Booking Platform
 
-A full-stack home cleaning service booking platform built with Node.js, Express, MongoDB, and React.
+A full-stack home cleaning service booking web app with a user-facing frontend, an admin panel, and a REST API backend.
 
-## 🌐 Live Demo
-
-| App | URL |
-|-----|-----|
-| 👤 User App | [clean-nest-phi.vercel.app](https://clean-nest-phi.vercel.app) |
-| 🛠️ Admin Panel | [clean-nest-a1sb.vercel.app](https://clean-nest-a1sb.vercel.app) |
-| ⚙️ Backend API | [cleannest-sfcj.onrender.com](https://cleannest-sfcj.onrender.com) — [/api/health](https://cleannest-sfcj.onrender.com/api/health) |
-
+> **Live Demo**
+> | App | URL |
+> |---|---|
+> | 🌐 Frontend (User App) | [clean-nest-nine.vercel.app](https://clean-nest-nine.vercel.app) |
+> | 🛠️ Admin Panel | [clean-nest-m1jd.vercel.app](https://clean-nest-m1jd.vercel.app) |
+> | ⚙️ Backend API | [cleannest-3wmv.onrender.com](https://cleannest-3wmv.onrender.com/api/health) |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-CleanNest-portal/
-├── cleannest-backend/    → Node.js + Express + MongoDB API
-├── cleannest-frontend/   → React user-facing app (Vite)
-└── cleannest-admin/      → React admin panel (Vite)
+CleanNest/
+├── cleannest-backend/     → Node.js + Express + MongoDB REST API
+├── cleannest-frontend/    → React user app (Vite)
+└── cleannest-admin/       → React admin panel (Vite)
 ```
 
 ---
 
-## 🚀 Quick Start (Local)
+## ✨ Features
 
-### 1. Backend
+### 👤 User App
+- Register & Login with JWT authentication
+- Browse cleaning services (fetched live from DB)
+- Book a service — name, address, GPS location, date & time
+- Pay via **Cash / UPI / Card** (Razorpay integration)
+- View booking history from personal dashboard
+- Manage profile
 
+### 🛠️ Admin Panel
+- Dashboard with live stats — total bookings, revenue, users
+- View & update booking statuses
+- Full user management with booking history
+- Services management — add, edit, hide/show, delete services (reflects instantly in user app)
+- Mark services as **Popular ⭐** or toggle visibility
+
+### ⚙️ Backend API
+- RESTful API with Express.js
+- MongoDB + Mongoose for data persistence
+- JWT-based auth with bcrypt password hashing
+- Helmet security headers + rate limiting (100 req / 15 min)
+- Nodemailer for email notifications
+- Razorpay payment processing
+
+---
+
+## 🚀 Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | React 18, React Router v6, Axios, Vite |
+| Admin Panel | React 18, React Router v6, Vite |
+| Backend | Node.js, Express.js |
+| Database | MongoDB (Mongoose) |
+| Auth | JWT, bcryptjs |
+| Payments | Razorpay |
+| Email | Nodemailer |
+| Security | Helmet, express-rate-limit |
+| Deployment | Vercel (frontend + admin), Render (backend) |
+
+---
+
+## 🔑 Default Credentials
+
+**Admin Login** (admin panel):
+```
+Email:    admin@cleannest.in
+Password: admin123
+```
+
+**Test User:** Register via the frontend → Register tab.
+
+---
+
+## 🛠️ Local Setup
+
+### Prerequisites
+- Node.js v18+
+- MongoDB running locally (`mongod`)
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/cleannest.git
+cd cleannest
+```
+
+### 2. Backend
 ```bash
 cd cleannest-backend
 npm install
-# Make sure MongoDB is running (mongod)
-npm start
+cp .env.example .env   # fill in your MongoDB URI, JWT secret, Razorpay keys
+npm start              # runs on http://localhost:5000
 ```
 
-### 2. Frontend (User App)
-
+### 3. Frontend (User App)
 ```bash
 cd cleannest-frontend
 npm install
-npm run dev
-# Runs at http://localhost:5173
+npm run dev            # runs on http://localhost:5173
 ```
 
-### 3. Admin Panel
-
+### 4. Admin Panel
 ```bash
 cd cleannest-admin
 npm install
-npm run dev
-# Runs at http://localhost:5174
+npm run dev            # runs on http://localhost:5174
 ```
 
 ---
 
-<<<<<<< HEAD
-**Admin Login:**
-- Email: `admin@cleannest.in`
-- Password: `admin@123`
-=======
-## 🔐 Default Credentials
->>>>>>> a1a8f72a50163c693bb93c86eae720a6a80d3e24
+## 📡 API Endpoints
 
-| Role  | Email                  | Password   |
-|-------|------------------------|------------|
-| Admin | admin@cleannest.in     | Admin@123  |
-| User  | Register via frontend  | —          |
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/health` | Health check |
+| POST | `/api/auth/register` | User registration |
+| POST | `/api/auth/login` | User login |
+| GET | `/api/services` | List all services |
+| POST | `/api/bookings` | Create a booking |
+| GET | `/api/bookings` | Get user bookings |
+| POST | `/api/payments/create-order` | Create Razorpay order |
+| POST | `/api/payments/verify` | Verify payment |
+| GET | `/api/admin/bookings` | Admin — all bookings |
+| GET | `/api/admin/users` | Admin — all users |
 
 ---
-
-## ✨ Key Features
-
-### 👤 User App
-
-- Register / Login (password min 8 characters)
-- Browse services (fetched from database, managed by admin)
-- Book a service with GPS location detection
-- Payment options: Cash / UPI / Card
-- Dashboard with booking history
-- Profile management
-
-### 🛠️ Admin Panel
-
-- Dashboard with stats (bookings, revenue, users)
-- Manage all bookings and update status
-- View users and their booking history
-- **Services Management** — Add, edit, hide/show, delete services
-  *(changes reflect instantly in the user app)*
 
 ---
 
@@ -97,58 +138,15 @@ npm run dev
 Register → Login → Browse Services → Book → Pay → View in Dashboard
 ```
 
-1. User registers with name, email, and password (8+ characters)
-2. After login, browse the Services page
-3. Select a service → fill booking form (name, address, phone, date, time)
-4. Proceed to payment → booking confirmed
-5. View booking history in Dashboard
+Admin Flow:
+```
+Admin Login → Dashboard → Manage Bookings / Users / Services
+```
 
 ---
 
-## ⚙️ Admin: Managing Services
+## 🌐 Deployment
 
-1. Login to admin panel → click **Services** in the sidebar
-2. Click **+ Add Service** to create a new service
-3. Fill in: name, price, duration, description, icon
-4. Toggle **Active** to show/hide the service from users
-5. Mark **Popular** to highlight with a ⭐ badge
-6. Edit or delete existing services anytime
-
----
-
-## 🗄️ Database
-
-| Detail       | Value                 |
-|--------------|-----------------------|
-| Database     | MongoDB Atlas (Cloud) |
-| GUI Tool     | MongoDB Compass       |
-| Collections  | `users`, `bookings`, `services` |
-
----
-
-## 🧰 Tech Stack
-
-| Layer    | Technology                    | Hosting    |
-|----------|-------------------------------|------------|
-| Backend  | Node.js, Express.js, MongoDB  | Render     |
-| Frontend | React, Vite                   | Vercel     |
-| Admin    | React, Vite                   | Vercel     |
-| Database | MongoDB Atlas                 | GCP Mumbai |
-
----
-
-## 🔗 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/health` | Health check |
-| POST | `/api/auth/register` | Register user |
-| POST | `/api/auth/login` | Login user |
-| GET | `/api/services` | Get all services |
-| POST | `/api/bookings` | Create booking |
-| GET | `/api/bookings` | Get user bookings |
-| GET | `/api/admin/dashboard` | Admin stats |
-
----
-
-> Built with ❤️ — CleanNest makes home cleaning simple and seamless.
+- **Frontend & Admin** → Deployed on [Vercel](https://vercel.com) (auto-deploy from Git)
+- **Backend** → Deployed on [Render](https://render.com) (Node.js web service)
+- **Database** → MongoDB Compass (local dev) → MongoDB Atlas (production)
